@@ -3,4 +3,9 @@
 <% @comedians.each do |comedian| %>
   <h2><%= comedian.name %></h2>
   <p><%= comedian.age %></p>
-<% end %>
+  <ul>
+    <% comedian.specials.each do |special| %>
+    <li><%= special.name %></li>
+    <% end %>
+  </ul>
+  <% end %>
