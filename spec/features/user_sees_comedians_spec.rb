@@ -27,4 +27,14 @@ RSpec.describe 'Visitor goes to comedian page' do
     visit '/comedians'
     expect(page).to have_content(average_age)
   end
+
+  it 'shows list of comedains with a specific age' do
+    iliza = Comedian.create(name: "Iliza Shlesinger", age: 34)
+    hannibal = Comedian.create(name: "Hannibal Buress", age: 34)
+    mike = Comedian.create(name: "Mike Birbiglia", age: 39)
+    visit '/comedians?age=34'
+    expect(page).to have_content(iliza.name)
+    expect(page).to have_content(hannibal.name)
+    expect(page).to_not have_content(mike.name)
+  end
 end
