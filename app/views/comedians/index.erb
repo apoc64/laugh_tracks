@@ -8,4 +8,7 @@
     <li><%= special.name %></li>
     <% end %>
   </ul>
-  <% end %>
+
+  <h3>Average Age: <%= Comedian.average(:age) %></h3>
+
+<% end %>
